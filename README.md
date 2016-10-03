@@ -28,11 +28,11 @@ $ brew install terminal-notifier
 
 Edit *packtd.plist.example* specifying paths to binaries: `packtd` and `terminal-notifier`
 
-Put *packtd.plist.example* at *~/Library/LaunchAgents/com.iharsuvorau.packtd.plist*
+Put *packtd.plist.example* at *~/Library/LaunchAgents/packtd.plist*
 
 Load the daemon:
 ```
-$ launchctl load ~/Library/LaunchAgents/com.iharsuvorau.packtd.plist
+$ launchctl load ~/Library/LaunchAgents/packtd.plist
 ```
 
 That's it. You will recieve daily notifications with free PacktPub's e-books. On click you can check the web page and grab an item.
