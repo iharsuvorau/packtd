@@ -19,20 +19,20 @@ $ packtd -to recipient@example.com -from sender@host.com -pass 123
 
 You could automate the app using *launchctl* on OS X or *systemctl* on Linux.
 
-For mac:
+### For mac
 
-1. Install [terminal-notifier](https://github.com/julienXX/terminal-notifier/blob/master/README.markdown) to use system notifications.
+Install [terminal-notifier](https://github.com/julienXX/terminal-notifier/blob/master/README.markdown) to use system notifications.
 ```
 $ brew install terminal-notifier
 ```
 
-2. Edit *packtd.plist.example* specifying paths to binaries: `packtd` and `terminal-notifier`
+Edit *packtd.plist.example* specifying paths to binaries: `packtd` and `terminal-notifier`
 
-3. Put *packtd.plist.example* at *~/Library/LaunchAgents/com.iharsuvorau.packtd.plist*
+Put *packtd.plist.example* at *~/Library/LaunchAgents/com.iharsuvorau.packtd.plist*
 
-4. Load the daemon:
+Load the daemon:
 ```
 $ launchctl load ~/Library/LaunchAgents/com.iharsuvorau.packtd.plist
 ```
 
-5. That's it. You will recieve daily notifications with free PacktPub's e-books. On click you can check the web page and grab an item.
+That's it. You will recieve daily notifications with free PacktPub's e-books. On click you can check the web page and grab an item.
