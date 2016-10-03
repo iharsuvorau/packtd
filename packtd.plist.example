@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.iharsuvorau.packtd</string>
+	<key>ProgramArguments</key>
+	<string>/path/to/the/bin/of/packtd</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>bash</string>
+		<string>-c</string>
+                <string>/path/to/the/bin/of/packtd | /usr/local/bin/terminal-notifier -title PacktPub -open https://www.packtpub.com/packt/offers/free-learning -message</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/usr/local/var/log/packtd.error.log</string>
+	<key>StandardOutPath</key>
+	<string>/usr/local/var/log/packtd.out.log</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>8</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
+</dict>
+</plist>

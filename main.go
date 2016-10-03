@@ -23,9 +23,9 @@ var (
 )
 
 func main() {
-	flag.StringVar(&to, "to", "", "use when you want to send the result message to the specified email:\n\t\t-to user@host.com")
-	flag.StringVar(&from, "from", "", "send from the specified gmail acount:\n\t\t-from sender@host.com")
-	flag.StringVar(&pass, "pass", "", "the sender's gmail password")
+	flag.StringVar(&to, "to", "", "use when you want to send the result message to the specified email: -to user@host.com")
+	flag.StringVar(&from, "from", "", "send from the specified gmail acount: -from sender@host.com")
+	flag.StringVar(&pass, "pass", "", "the sender's gmail password: -pass yousecretpass")
 	flag.Parse()
 
 	if len(to) > 0 {
@@ -48,9 +48,11 @@ func main() {
 		if err != nil {
 			log.Fatal("sending error: ", err)
 		}
+
+		log.Printf("email sent from %v to %v\n", validFrom.Address, validTo.Address)
 	} else {
 		msg := fetch()
-		fmt.Printf("%v", msg)
+		fmt.Println(msg)
 	}
 }
 
@@ -63,7 +65,7 @@ func fetch() string {
 	}
 
 	t := doc.Find(".dotd-title h2").Text()
-	r := fmt.Sprintf("today's book:\n\t%v\n\t(%v)\n", strings.TrimSpace(t), packtURI)
+	r := fmt.Sprintf("%v. Check on http://bit.ly/1Bp3uB2", strings.TrimSpace(t))
 	return r
 }
 
