@@ -26,9 +26,24 @@ Install [terminal-notifier](https://github.com/julienXX/terminal-notifier/blob/m
 $ brew install terminal-notifier
 ```
 
-Edit *packtd.plist.example* specifying paths to binaries: `packtd` and `terminal-notifier`
+The bash script checks internet connection and runs our programs. Edit *launch_packtd.sh.example* specifying paths to binaries: `packtd` and `terminal-notifier`.
 
-Put *packtd.plist.example* at *~/Library/LaunchAgents/packtd.plist*
+Put *launch_packtd.sh.example* at *~/Library/LaunchAgents/launch_packtd.sh*:
+```
+cp launch_packtd.sh.example ~/Library/LaunchAgents/launch_packtd.sh
+```
+
+Make it executable:
+```
+chmod +x ~/Library/LaunchAgents/launch_packtd.sh
+``` 
+
+Launchctl uses its own XML-based files for services. Edit *packtd.plist.example* specifying the path to the bash script file. 
+
+Put *packtd.plist.example* at *~/Library/LaunchAgents/packtd.plist*:
+```
+cp packtd.plist.example ~/Library/LaunchAgents/packtd.plist
+```
 
 Load the daemon:
 ```

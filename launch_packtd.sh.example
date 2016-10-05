@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# check internet connection
+# according to http://blog.slaunchaman.com/2010/07/01/how-to-run-a-launchdaemon-that-requires-networking/
+. /etc/rc.common 
+CheckForNetwork
+
+# limit cycle
+COUNTER=0
+while [ $COUNTER -lt 10 ]; do
+
+    # check the network is on
+    while [ "${NETWORKUP}" != "-YES-" ]; do
+        let COUNTER=COUNTER+1 
+        sleep 5
+        NETWORKUP=CheckForNetwork
+    done
+
+    # the network is up so we done with the counter
+    let COUNTER=COUNTER+10 
+
+    # run the pactd and terminal-notifier
+    bash -c "/path/to/the/packtd | /usr/local/bin/terminal-notifier -title PacktPub -open https://www.packtpub.com/packt/offers/free-learning -message"
+
+done
